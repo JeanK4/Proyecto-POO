@@ -27,12 +27,12 @@ class vuelo{
 		aeronave getAeronaveAsignada();
 		vector<tripulante> getTripulantesAbordo();
 		/* sets */
-		string setNumIdent();
-		string setFecha();
-		string setCiudadOrigen();
-		string setCiudadDestino();
+		void setNumIdent(string NumID);
+		void setFecha(string Fecha);
+		void setCiudadOrigen(string COrigen);
+		void setCiudadDestino(string CDestino);
 		void setPersonasAbordo(vector<pasajero> p);
-		aeronave setAeronaveAsignada();
+		void setAeronaveAsignada(aeronave n);
 		void setTripulantesAbordo(vector<tripulante> t);
 };
 

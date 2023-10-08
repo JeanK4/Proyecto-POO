@@ -16,9 +16,9 @@ class tripulante : private persona{
 		int getExperienciaAños();
 		int getHorasMax();
 		/* sets */
-		string setPuesto();
-		int setExperienciaAños();
-		int setHorasMax();
+		void setPuesto(string puesto);
+		void setExperienciaAños(int Xp);
+		void setHorasMax(int HM);
 };
 
 #endif
