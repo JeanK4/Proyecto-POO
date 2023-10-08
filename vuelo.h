@@ -31,9 +31,9 @@ class vuelo{
 		string setFecha();
 		string setCiudadOrigen();
 		string setCiudadDestino();
-		vector<pasajero> setPersonasAbordo();
+		void setPersonasAbordo(vector<pasajero> p);
 		aeronave setAeronaveAsignada();
-		vector<tripulante> setTripulantesAbordo();
+		void setTripulantesAbordo(vector<tripulante> t);
 };
 
 #endif

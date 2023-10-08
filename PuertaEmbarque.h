@@ -22,11 +22,11 @@ class puertaembarque{
 		string getHora();
 		vector<vuelo> getHistorial();
 		/* sets */
-		bool setDisponible();
-		string setIdentificacion();
-		string setUbicacion();
-		string setHora();
-		vector<vuelo> setHistorial();
+		void setDisponible(bool estado);
+		void setIdentificacion(string ID);
+		void setUbicacion(string Ubicacion);
+		void setHora(string Hora);
+		void setHistorial(vector<vuelo> historial);
 };
 
 #endif

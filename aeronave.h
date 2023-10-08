@@ -30,13 +30,13 @@ class aeronave{
 		int getAñoFabricacion();
 		int getEstado();
 		/* sets */
-		string setMarca();
-		int setModelo();
-		int setCapacidadPasajeros();
-		int setVelocidadMaxima();
-		int setAutonomia();
-		int setAñoFabricacion();
-		int setEstado();
+		void setMarca(string Marca);
+		void setModelo(int model);
+		void setCapacidadPasajeros(int capPasajeros);
+		void setVelocidadMaxima(int velM);
+		void setAutonomia(int autonomia);
+		void setAñoFabricacion(int yF);
+		void setEstado(int S);
 };
 
 class avion : private aeronave{
@@ -53,9 +53,9 @@ class avion : private aeronave{
 		int getCategoria();
 		
 		/* sets */
-		string setAltitudMax();
-		int setCantMotores();
-		int setCategoria();
+		void setAltitudMax(string AltM);
+		void setCantMotores(int ctM);
+		void setCategoria(int Categ);
 		
 };
 
@@ -73,9 +73,9 @@ class helicoptero : private aeronave{
 		int getUso();
 
 		/* sets */
-		int setCntRotores();
-		string setCapacidadElevacion();
-		int setUso();
+		void setCntRotores(int rotores);
+		void setCapacidadElevacion(string capElev);
+		void setUso(int uso);
 };
 
 class jets : private aeronave{
@@ -91,9 +91,9 @@ class jets : private aeronave{
 		vector<string> getServicios();
 		vector<string> getDestinosFrec();
 		/* sets */
-		string setPropietario();
-		vector<string> setServicios();
-		vector<string> setDestinosFrec();
+		void setPropietario(string p);
+		void setServicios(vector<string> s);
+		void setDestinosFrec(vector<string> d);
 };
 
 #endif

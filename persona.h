@@ -26,13 +26,13 @@ class persona{
 		string getTelefono();
 		string getCorreo();
 		/* sets */
-		string setCedula();
-		string setNombre();
-		string setFechaNacimiento();
-		string setGenero();
-		string setDireccion();
-		string setTelefono();
-		string setCorreo();
+		void setCedula(string Ced);
+		void setNombre(string Nom);
+		void setFechaNacimiento(string FechNaci);
+		void setGenero(string gender);
+		void setDireccion(string address);
+		void setTelefono(string telef);
+		void setCorreo(string mail);
 };
 
 #endif

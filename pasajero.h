@@ -16,9 +16,9 @@ class pasajero : private persona{
 		int getCntMaletas();
 		string getInfoMedica();
 		/* sets */
-		string setNacionalidad();
-		int setCntMaletas();
-		string setInfoMedica();
+		void setNacionalidad(string Nacionalidad);
+		void setCntMaletas(int ctMaletas);
+		void setInfoMedica(string InfMed);
 };
 
 #endif
