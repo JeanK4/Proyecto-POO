@@ -1,5 +1,4 @@
 #include "PuertaEmbarque.h"
-#include "aeropuerto.h"
 
 #ifndef TORRECONTROL
 #define TORRECONTROL
@@ -15,7 +14,11 @@ class torreControl{
 		static torreControl* getInstance();
 		void asignarPuerta();
 		void iniciarVuelo(vuelo fly);
-		void addPuerta();		
+		void addPuerta(puertaembarque puerta);
+		void finalizarVuelo(vuelo fly);
+		void solicitarAltitud(vuelo fly);
+		void recibirAltitud();
+		void consultarPuertas();	
 		
 };
 

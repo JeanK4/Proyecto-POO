@@ -1,5 +1,4 @@
 #include "vuelo.h"
-#include "TorreControl.h"
 
 using namespace std;
 
@@ -8,14 +7,14 @@ using namespace std;
 
 class aeropuerto{
 	private:
-		vector<vuelo> vuelos;
+		static vector<vuelo> vuelos;
 	public:
 		aeropuerto();
 		aeropuerto(vector<vuelo> vuelo);
 		void reservarVuelo();
 		void consultarVuelo();
-		void añadirVuelo();
-		void consultarPuertas();
+		void anadirVuelo();
+		static vector<vuelo>& getVuelos();
 };
 
 #endif

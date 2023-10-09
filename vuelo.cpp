@@ -1,7 +1,13 @@
 #include "vuelo.h"
+#include <ctime>
+#include <cstdlib>
 
 string vuelo::getNumIdent() {
     return numIdent;
+}
+
+vuelo::vuelo(){
+
 }
 
 string vuelo::getFecha() {
@@ -24,8 +30,8 @@ vector<pasajero> vuelo::getPersonasAbordo() {
     return personasAbordo;
 }
 
-aeronave vuelo::getAeronaveAsignada() {
-    return *aeronaveAsignada;
+aeronave* vuelo::getAeronaveAsignada() {
+    return aeronaveAsignada;
 }
 
 vector<tripulante> vuelo::getTripulantesAbordo() {
@@ -72,14 +78,20 @@ void vuelo::setIdPuerta(string identificacion){
     idPuerta = identificacion;
 }
 
-void vuelo::finalizarVuelo(){
-
-}
-
 string vuelo::getHora(){
     return hora;
 }
 
 void vuelo::setHora(string hour){
     hora = hour;
+}
+
+void vuelo::recibirMensaje(){
+    cout << "Mensaje recibido: Vuelo #" << this->numIdent << ", Se solicita altitud" << endl;
+}
+
+void vuelo::enviarAltitud(){
+    srand(time(0));
+    int numeroAleatorio = 10000 + rand() % (12000 - 10000 + 1);
+    cout << "La altitud actual es de: " << numeroAleatorio << "metros de altura" << endl;
 }

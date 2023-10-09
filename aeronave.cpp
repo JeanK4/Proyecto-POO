@@ -2,6 +2,8 @@
 
 aeronave::aeronave() {
     ctVuelos = 0;
+    capacidadPasajeros = 0;
+    estado = 1;
 }
 
 string aeronave::getMarca() {
@@ -24,8 +26,8 @@ int aeronave::getAutonomia() {
     return autonomia;
 }
 
-int aeronave::getAñoFabricacion() {
-    return añoFabricacion;
+int aeronave::getAnoFabricacion() {
+    return anoFabricacion;
 }
 
 int aeronave::getEstado() {
@@ -56,8 +58,8 @@ void aeronave::setAutonomia(int autonom) {
     autonomia = autonom;
 }
 
-void aeronave::setAñoFabricacion(int yF) {
-    añoFabricacion = yF;
+void aeronave::setAnoFabricacion(int yF) {
+    anoFabricacion = yF;
 }
 
 void aeronave::setEstado(int S) {
@@ -72,13 +74,13 @@ void aeronave::setCtVuelos(int ct){
     ctVuelos = ct;
 }
 
-avion::avion(string marca, int model, int capacidadP, int velocidadM, int autonomia, int añoF, int est, string altM, int cntM) {
+avion::avion(string marca, int model, int capacidadP, int velocidadM, int autonomia, int anoF, int est, string altM, int cntM) {
     setMarca(marca);
     setModelo(model);
     setCapacidadPasajeros(capacidadP);
     setVelocidadMaxima(velocidadM);
     setAutonomia(autonomia);
-    setAñoFabricacion(añoF);
+    setAnoFabricacion(anoF);
     setEstado(est);
     altitudMax = altM;
     cantMotores = cntM;
@@ -106,13 +108,13 @@ helicoptero::helicoptero() {
 
 }
 
-helicoptero::helicoptero(string marca, int model, int capacidadP, int velocidadM, int autonomia, int añoF, int est, int cntR, string capE, int uso) {
+helicoptero::helicoptero(string marca, int model, int capacidadP, int velocidadM, int autonomia, int anoF, int est, int cntR, string capE, int uso) {
     setMarca(marca);
     setModelo(model);
     setCapacidadPasajeros(capacidadP);
     setVelocidadMaxima(velocidadM);
     setAutonomia(autonomia);
-    setAñoFabricacion(añoF);
+    setAnoFabricacion(anoF);
     setEstado(est);
     cntRotores = cntR;
     capacidadElevacion = capE;
@@ -147,13 +149,13 @@ jets::jets() {
 
 }
 
-jets::jets(string marca, int model, int capacidadP, int velocidadM, int autonomia, int añoF, int est, string propietario, vector<string> services, vector<string> destinosFrec) {
+jets::jets(string marca, int model, int capacidadP, int velocidadM, int autonomia, int anoF, int est, string propietario, vector<string> services, vector<string> destinosFrec) {
     setMarca(marca);
     setModelo(model);
     setCapacidadPasajeros(capacidadP);
     setVelocidadMaxima(velocidadM);
     setAutonomia(autonomia);
-    setAñoFabricacion(añoF);
+    setAnoFabricacion(anoF);
     setEstado(est);
     propietario = propietario;
     servicios = services;

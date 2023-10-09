@@ -7,7 +7,6 @@ puertaembarque::puertaembarque(string id, string ubi){
     disponible = true;
     identificacion = id;
     ubicacion = ubi;
-    hora = hour;
 }
 
 bool puertaembarque::getDisponible() {

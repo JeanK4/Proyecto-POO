@@ -1,6 +1,6 @@
-#include "pasajeros.h"
+#include "pasajero.h"
 #include "aeronave.h"
-#include "tripulantes.h"
+#include "tripulante.h"
 
 using namespace std;
 
@@ -21,7 +21,8 @@ class vuelo{
 		vector<tripulante> tripulantesAbordo;
 	public:
 		vuelo();
-		void finalizarVuelo();
+		void recibirMensaje();
+		void enviarAltitud();
 		/* gets */
 		string getNumIdent();
 		string getFecha();
@@ -29,7 +30,7 @@ class vuelo{
 		string getCiudadOrigen();
 		string getCiudadDestino();
 		vector<pasajero> getPersonasAbordo();
-		aeronave getAeronaveAsignada();
+		aeronave* getAeronaveAsignada();
 		int getTipoVuelo();
 		string getIdPuerta();
 		vector<tripulante> getTripulantesAbordo();

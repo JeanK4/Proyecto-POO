@@ -4,8 +4,8 @@ string tripulante::getPuesto() {
     return puesto;
 }
 
-int tripulante::getExperienciaAños() {
-    return experienciaAños;
+int tripulante::getExperienciaAnos() {
+    return experienciaAnos;
 }
 
 int tripulante::getHorasMax() {
@@ -16,8 +16,8 @@ void tripulante::setPuesto(string puesto) {
     this->puesto = puesto;
 }
 
-void tripulante::setExperienciaAños(int Xp) {
-    experienciaAños = Xp;
+void tripulante::setExperienciaAnos(int Xp) {
+    experienciaAnos = Xp;
 }
 
 void tripulante::setHorasMax(int HM) {

@@ -16,7 +16,7 @@ class puertaembarque{
 		vector<vuelo> historial;
 	public:
 		puertaembarque();
-		puertaembarque(string id, string ubi, string hour);
+		puertaembarque(string id, string ubi);
 		void addHistorial(vuelo fly);
 		/* gets */
 		bool getDisponible();

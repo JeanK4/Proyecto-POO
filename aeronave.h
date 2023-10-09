@@ -18,7 +18,7 @@ class aeronave{
 		int capacidadPasajeros;
 		int velocidadMaxima;
 		int autonomia;
-		int añoFabricacion;
+		int anoFabricacion;
 		int estado;
 	public:
 		aeronave();
@@ -28,7 +28,7 @@ class aeronave{
 		int getCapacidadPasajeros();
 		int getVelocidadMaxima();
 		int getAutonomia();
-		int getAñoFabricacion();
+		int getAnoFabricacion();
 		int getEstado();
 		int getCtVuelos();
 		/* sets */
@@ -37,7 +37,7 @@ class aeronave{
 		void setCapacidadPasajeros(int capPasajeros);
 		void setVelocidadMaxima(int velM);
 		void setAutonomia(int autonomia);
-		void setAñoFabricacion(int yF);
+		void setAnoFabricacion(int yF);
 		void setEstado(int S);
 		void setCtVuelos(int ct);
 };
@@ -48,7 +48,7 @@ class avion : public aeronave{
 		int cantMotores;
 	public:
 		avion();
-		avion(string marca, int model, int capacidadP, int velocidadM, int autonomia, int añoF, int est, string altM, int cntM);
+		avion(string marca, int model, int capacidadP, int velocidadM, int autonomia, int anoF, int est, string altM, int cntM);
 		/* gets */
 		string getAltitudMax();
 		int getCantMotores();
@@ -66,7 +66,7 @@ class helicoptero : public aeronave{
 		int uso;
 	public:
 		helicoptero();
-		helicoptero(string marca, int model, int capacidadP, int velocidadM, int autonomia, int añoF, int est, int cntR, string capE, int uso);
+		helicoptero(string marca, int model, int capacidadP, int velocidadM, int autonomia, int anoF, int est, int cntR, string capE, int uso);
 		/* gets */
 		int getCntRotores();
 		string getCapacidadElevacion();
@@ -85,7 +85,7 @@ class jets : public aeronave{
 		vector<string> destinosFrec;
 	public:
 		jets();
-		jets(string marca, int model, int capacidadP, int velocidadM, int autonomia, int añoF, int est, string propietario, vector<string> services ,vector<string> destinosFrec);
+		jets(string marca, int model, int capacidadP, int velocidadM, int autonomia, int anoF, int est, string propietario, vector<string> services ,vector<string> destinosFrec);
 		/* gets */
 		string getPropietario();
 		vector<string> getServicios();
