@@ -1,7 +1,6 @@
 #include "aeronave.h"
 
 aeronave::aeronave() {
-    ctVuelos = 0;
     capacidadPasajeros = 0;
     estado = 1;
 }
@@ -66,7 +65,7 @@ void aeronave::setEstado(int S) {
     estado = S;
 }
 
-avion::avion() {
+avion::avion(){
 
 }
 

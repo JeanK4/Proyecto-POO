@@ -37,84 +37,92 @@ void aeropuerto::reservarVuelo(){
         }
 
 	}while(!entradaValida);
-	for(int i = 0; i < vuelos.size(); i++){
-		cout << opcion << endl;
-		aeronave* tmp = vuelos[i].getAeronaveAsignada(); /* variable tipo puntero de la clase aeronave */
-		cout << tmp->getCtVuelos() << endl;
-		if(tmp->getCapacidadPasajeros() > 0 && tmp->getCtVuelos() < 3 && vuelos[i].getTipoVuelo() == opcion){
-			cout << ++i << ". " <<"Vuelo #" << vuelos[i].getNumIdent() << " esta programado para la fecha " << vuelos[i].getFecha() << "con ciudad de origen " << vuelos[i].getCiudadOrigen() << " y ciudad de destino " << vuelos[i].getCiudadDestino() << endl; 
-		}
-		else if(i == vuelos.size() || vuelos.size() == 0){
-			cout << "No hay vuelos disponibles" << endl;
-		}
-	}
-	int numvuelo;
-	entradaValida = false;
-	do{
-		cout << "Seleccione un vuelo" << endl;
-		cin >> numvuelo;
-		if(cin.fail()){
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
-            cerr << "Error: Entrada inválida. Por favor, ingrese un número entero." << endl;
-        } 
-        else{
-        	entradaValida = true;
-        }
+	//cout << "Vuelos" << vuelos[0].getAeronaveAsignada()->getCtVuelos() << endl;;
+	if(vuelos.size() != 0){
+		for(int i = 0; i < vuelos.size(); i++){
+			/* variable tipo puntero de la clase aeronave */
+			cout << i << endl;
+			cout << vuelos[i].getAeronaveAsignada()->getCtVuelos() << endl;
+			if(vuelos[i].getAeronaveAsignada()->getCapacidadPasajeros() > 0 && vuelos[i].getTipoVuelo() == opcion){
+				cout << ++i << ". " <<"Vuelo #" << vuelos[i].getNumIdent() << " esta programado para la fecha " << vuelos[i].getFecha() << " con ciudad de origen " << vuelos[i].getCiudadOrigen() << " y ciudad de destino " << vuelos[i].getCiudadDestino() << endl; 
+				int numvuelo;
+				entradaValida = false;
+				do{
 
-	}while(!entradaValida);
-	numvuelo--;
-	aeronave* tmp = vuelos[numvuelo].getAeronaveAsignada();
-	int tmp2 = tmp->getCapacidadPasajeros(); /* variable de tipo entero temporal */
-	tmp->setCapacidadPasajeros(tmp2--);
-	if(tmp->getCapacidadPasajeros() == 0){
-		cout << "entra" << endl;
-		tmp->setEstado(2);
-		tmp2 = tmp->getCtVuelos() + 1;
-		tmp->setCtVuelos(tmp2);
+					cout << "Seleccione un vuelo -> ";
+					cin >> numvuelo;
+					if(cin.fail()){
+			            cin.clear();
+			            cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
+			            cerr << "Error: Entrada inválida. Por favor, ingrese un número entero." << endl;
+			        } 
+			        else{
+			        	entradaValida = true;
+			        }
+
+				}while(!entradaValida);
+				numvuelo--;
+				aeronave* tmp = vuelos[numvuelo].getAeronaveAsignada();
+				int tmp2 = tmp->getCapacidadPasajeros() - 1; /* variable de tipo entero temporal */
+				tmp->setCapacidadPasajeros(tmp2);
+				if(tmp->getCapacidadPasajeros() == 0){
+					cout << "entra" << endl;
+					tmp->setEstado(2);
+					tmp2 = tmp->getCtVuelos() + 1;
+					tmp->setCtVuelos(tmp2);
+				}
+				pasajero personita;
+				string tmp3; /* Tmp3 es una variable tipo string temporal para recibir los datos del usuario*/
+				cout << "Ingrese su cedula: "; 
+				cin >> tmp3;
+				cout << endl;
+				personita.setCedula(tmp3);
+				cout << "Ingrese su nombre: ";
+				cin >> tmp3;
+				cout << endl;
+				personita.setNombre(tmp3);
+				cout << "Ingrese su fecha nacimiento: ";
+				cin >> tmp3;
+				cout << endl;
+				personita.setFechaNacimiento(tmp3);
+				cout << "Ingrese su género: ";
+				cin >> tmp3;
+				cout << endl;
+				personita.setGenero(tmp3);
+				cout << "Ingrese su dirección: ";
+				cin >> tmp3;
+				cout << endl;
+				personita.setDireccion(tmp3);
+				cout << "Ingrese su teléfono: ";
+				cin >> tmp3;
+				cout << endl;
+				personita.setTelefono(tmp3);
+				cout << "Ingrese su correo: ";
+				cin >> tmp3;
+				cout << endl;
+				personita.setCorreo(tmp3);
+				cout << "Ingrese su nacionalidad: ";
+				cin >> tmp3;
+				cout << endl;
+				personita.setNacionalidad(tmp3);
+				cout << "Ingrese su Informacion Medica: ";
+				cin >> tmp3;
+				cout << endl;
+				personita.setInfoMedica(tmp3);
+				cout << "Ingrese su cantidad de maletas: ";
+				cin >> tmp2;
+				cout << endl;
+				personita.setCntMaletas(tmp2);
+			}
+			else if(i == vuelos.size() || vuelos.size() == 0){
+				cout << "No hay vuelos disponibles" << endl;
+			}
+		}
 	}
-	pasajero personita;
-	string tmp3; /* Tmp3 es una variable tipo string temporal para recibir los datos del usuario*/
-	cout << "Ingrese su cedula: "; 
-	cin >> tmp3;
-	cout << endl;
-	personita.setCedula(tmp3);
-	cout << "Ingrese su nombre: ";
-	cin >> tmp3;
-	cout << endl;
-	personita.setNombre(tmp3);
-	cout << "Ingrese su fecha nacimiento: ";
-	cin >> tmp3;
-	cout << endl;
-	personita.setFechaNacimiento(tmp3);
-	cout << "Ingrese su género: ";
-	cin >> tmp3;
-	cout << endl;
-	personita.setGenero(tmp3);
-	cout << "Ingrese su dirección: ";
-	cin >> tmp3;
-	cout << endl;
-	personita.setDireccion(tmp3);
-	cout << "Ingrese su teléfono: ";
-	cin >> tmp3;
-	cout << endl;
-	personita.setTelefono(tmp3);
-	cout << "Ingrese su correo: ";
-	cin >> tmp3;
-	cout << endl;
-	personita.setCorreo(tmp3);
-	cout << "Ingrese su nacionalidad: ";
-	cin >> tmp3;
-	cout << endl;
-	personita.setNacionalidad(tmp3);
-	cout << "Ingrese su Informacion Medica: ";
-	cin >> tmp3;
-	cout << endl;
-	personita.setInfoMedica(tmp3);
-	cout << "Ingrese su cantidad de maletas: ";
-	cin >> tmp2;
-	cout << endl;
-	personita.setCntMaletas(tmp2);
+	else
+		cout << "No hay vuelos disponibles" << endl;
+	
+	
 }
 
 void aeropuerto::consultarVuelo(){
@@ -127,6 +135,7 @@ void aeropuerto::consultarVuelo(){
 	while(i < vuelos.size() && !flag){
 		if(vuelos[i].getNumIdent() == numvuelo){
 			flag = true;
+			cout << "Cantidad de vuelos aeronave: " << vuelos[i].getAeronaveAsignada()->getCtVuelos() << endl;
 			cout << "Numero de Vuelo: " << vuelos[i].getNumIdent() << endl;
 			cout << "Ciudad de Origen: " << vuelos[i].getCiudadOrigen() << endl;
 			cout << "Ciudad de Destino: " << vuelos[i].getCiudadDestino() << endl;
@@ -142,8 +151,8 @@ void aeropuerto::anadirVuelo(){
 	string tmp1; /* varibale temporal tipo string */
 	cout << "Digite el tipo de vuelo: \n1. Vuelo Comercial\n2. Vuelo de Carga\n3. Helicoptero\n4. Jet Privado\n";
 	cin >> opcion;
-	cout << endl;
 	flight.setTipoVuelo(opcion);
+	int x = 0;
 	aeronave *tmp3; /* variable temporal tipo puntero aeronave */
 	switch(opcion){
 	    case 1: {
@@ -174,7 +183,7 @@ void aeropuerto::anadirVuelo(){
 
 		    AvionComercial.setEstado(1);
 
-		    AvionComercial.setCtVuelos(0);
+		    AvionComercial.setCtVuelos(x);
 
 		    cout << "Ingrese la altitud Maxima del avion: ";
 		    cin >> tmp1;
@@ -217,9 +226,7 @@ void aeropuerto::anadirVuelo(){
 
 		    AvionCarga.setEstado(1);
 
-		    AvionCarga.setCtVuelos(0);
-
-		    
+		    AvionCarga.setCtVuelos(x);  
 
 		    cout << "Ingrese la altitud Maxima del avion: ";
 		    cin >> tmp1;
@@ -262,7 +269,7 @@ void aeropuerto::anadirVuelo(){
 
 		    heli.setEstado(1);
 
-		    heli.setCtVuelos(0);
+		    heli.setCtVuelos(x);
 
 		    cout << "Ingrese la cantidad de rotores del helicoptero: ";
 		    cin >> tmp;
@@ -309,7 +316,7 @@ void aeropuerto::anadirVuelo(){
 
 		    jet.setEstado(1);
 
-		    jet.setCtVuelos(0);
+		    jet.setCtVuelos(x);
 
 		    cout << "Ingrese el nombre del propietario del jet: ";
 		    cin >> tmp1;
@@ -355,8 +362,10 @@ void aeropuerto::anadirVuelo(){
         default:
             cout << "Opcion invalida." << endl;
             break;
-        flight.setAeronaveAsignada(tmp3);
     }
+    //cout << "Aeronave asignada antes: " << tmp3->getCtVuelos() << endl;
+    flight.setAeronaveAsignada(tmp3);
+    //cout << "Aeronave después: " << flight.getAeronaveAsignada()->getCtVuelos() << endl;
 	cout << "Digite el numero del vuelo: ";
 	cin >> tmp1;
 	flight.setNumIdent(tmp1);
