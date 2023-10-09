@@ -105,6 +105,17 @@ void aeropuerto::consultarVuelo(){
 	}
 }
 
+void aeropuerto::consultarPuertas(){
+	for(int i = 0; i < Puertas.size(); i++){
+		cout << "Puerta #" << Puertas[i].getIdentificacion() << ": ";
+		if(Puertas[i].getDisponible())
+			cout << "Disponible, ";
+		else
+			cout << "No Disponible, ";
+		cout << "Ubicacion: " << Puertas[i].getUbicacion() << endl;
+	}
+}
+
 void aeropuerto::añadirVuelo(){
 	vuelo flight;
 	int opcion, tmp; /* variable temporal tipo entero para el switch y variable auxiliar tipo entero para los atributos del avión*/

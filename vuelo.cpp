@@ -63,3 +63,23 @@ void vuelo::addTripulantesAbordo(tripulante t) {
 void vuelo::setTipoVuelo(int x){
     tipoVuelo = x;
 }
+
+string vuelo::getIdPuerta(){
+    return idPuerta;
+}
+
+void vuelo::setIdPuerta(string identificacion){
+    idPuerta = identificacion;
+}
+
+void vuelo::finalizarVuelo(){
+
+}
+
+string vuelo::getHora(){
+    return hora;
+}
+
+void vuelo::setHora(string hour){
+    hora = hour;
+}

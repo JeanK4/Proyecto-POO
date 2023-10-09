@@ -1,4 +1,5 @@
 #include "vuelo.h"
+#include "TorreControl.h"
 
 using namespace std;
 
@@ -14,6 +15,7 @@ class aeropuerto{
 		void reservarVuelo();
 		void consultarVuelo();
 		void añadirVuelo();
+		void consultarPuertas();
 };
 
 #endif

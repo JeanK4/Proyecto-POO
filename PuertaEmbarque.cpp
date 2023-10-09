@@ -1,7 +1,13 @@
 #include "PuertaEmbarque.h"
 
 puertaembarque::puertaembarque() {
-    // Constructor por defecto
+
+}
+puertaembarque::puertaembarque(string id, string ubi){
+    disponible = true;
+    identificacion = id;
+    ubicacion = ubi;
+    hora = hour;
 }
 
 bool puertaembarque::getDisponible() {
@@ -40,6 +46,14 @@ void puertaembarque::setHora(string Hora) {
     hora = Hora;
 }
 
-void puertaembarque::setHistorial(vector<vuelo> Historial) {
-    historial = Historial;
+void puertaembarque::addHistorial(vuelo fly) {
+    historial.push_back(fly);
+}
+
+vuelo* puertaembarque::getVuelo(){
+    return vueloAsignado;
+}
+
+void puertaembarque::setVuelo(vuelo* fly){
+    vueloAsignado = fly;
 }

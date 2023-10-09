@@ -1,4 +1,5 @@
 #include "PuertaEmbarque.h"
+#include "aeropuerto.h"
 
 #ifndef TORRECONTROL
 #define TORRECONTROL
@@ -12,10 +13,9 @@ class torreControl{
 		vector<puertaembarque> Puertas;
 	public:
 		static torreControl* getInstance();
-		/* get */
-		vector<puertaembarque> getPuertas();
-		/* set */
-		void setPuertas(vector<puertaembarque> puertas);
+		void asignarPuerta();
+		void iniciarVuelo(vuelo fly);
+		void addPuerta();		
 		
 };
 

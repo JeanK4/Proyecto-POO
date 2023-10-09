@@ -12,31 +12,38 @@ class vuelo{
 		int tipoVuelo;
 		string numIdent;
 		string fecha;
+		string hora;
+		string idPuerta;
 		string ciudadOrigen;
 		string ciudadDestino;
-		vector<pasajero> personasAbordo;
 		aeronave *aeronaveAsignada;
+		vector<pasajero> personasAbordo;
 		vector<tripulante> tripulantesAbordo;
 	public:
 		vuelo();
+		void finalizarVuelo();
 		/* gets */
 		string getNumIdent();
 		string getFecha();
+		string getHora();
 		string getCiudadOrigen();
 		string getCiudadDestino();
 		vector<pasajero> getPersonasAbordo();
 		aeronave getAeronaveAsignada();
 		int getTipoVuelo();
+		string getIdPuerta();
 		vector<tripulante> getTripulantesAbordo();
 		/* sets */
 		void setNumIdent(string NumID);
 		void setFecha(string Fecha);
+		void setHora(string hour);
 		void setCiudadOrigen(string COrigen);
 		void setCiudadDestino(string CDestino);
 		void addPersonasAbordo(pasajero p);
 		void setAeronaveAsignada(aeronave *n);
 		void addTripulantesAbordo(tripulante t);
 		void setTipoVuelo(int x);
+		void setIdPuerta(string identificacion);
 };
 
 #endif
