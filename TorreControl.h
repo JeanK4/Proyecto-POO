@@ -16,7 +16,7 @@ class torreControl{
 		vector<puertaembarque> getPuertas();
 		/* set */
 		void setPuertas(vector<puertaembarque> puertas);
-    }
+		
 };
 
 #endif

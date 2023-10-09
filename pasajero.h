@@ -5,7 +5,7 @@ using namespace std;
 #ifndef PASAJERO
 #define PASAJERO
 
-class pasajero : private persona{
+class pasajero : public persona{
 	private:
 		string nacionalidad;
 		int cntMaletas;

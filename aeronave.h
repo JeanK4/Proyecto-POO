@@ -13,6 +13,7 @@ class aeronave{
 		* ATRIBUTOS *
 		************/
 		string marca;
+		int ctVuelos;
 		int modelo;
 		int capacidadPasajeros;
 		int velocidadMaxima;
@@ -29,6 +30,7 @@ class aeronave{
 		int getAutonomia();
 		int getAñoFabricacion();
 		int getEstado();
+		int getCtVuelos();
 		/* sets */
 		void setMarca(string Marca);
 		void setModelo(int model);
@@ -37,29 +39,27 @@ class aeronave{
 		void setAutonomia(int autonomia);
 		void setAñoFabricacion(int yF);
 		void setEstado(int S);
+		void setCtVuelos(int ct);
 };
 
-class avion : private aeronave{
+class avion : public aeronave{
 	private:
 		string altitudMax;
 		int cantMotores;
-		int categoria;
 	public:
 		avion();
-		avion(string marca, int model, int capacidadP, int velocidadM, int autonomia, int añoF, int est, string altM, int cntM, int categ);
+		avion(string marca, int model, int capacidadP, int velocidadM, int autonomia, int añoF, int est, string altM, int cntM);
 		/* gets */
 		string getAltitudMax();
 		int getCantMotores();
-		int getCategoria();
 		
 		/* sets */
 		void setAltitudMax(string AltM);
 		void setCantMotores(int ctM);
-		void setCategoria(int Categ);
 		
 };
 
-class helicoptero : private aeronave{
+class helicoptero : public aeronave{
 	private:
 		int cntRotores;
 		string capacidadElevacion;
@@ -78,7 +78,7 @@ class helicoptero : private aeronave{
 		void setUso(int uso);
 };
 
-class jets : private aeronave{
+class jets : public aeronave{
 	private:
 		string propietario;
 		vector<string> servicios;

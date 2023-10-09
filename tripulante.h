@@ -5,7 +5,7 @@ using namespace std;
 #ifndef TRIPULANTE
 #define TRIPULANTE
 
-class tripulante : private persona{
+class tripulante : public persona{
 	private:
 		string puesto;
 		int experienciaAños;

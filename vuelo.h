@@ -9,14 +9,15 @@ using namespace std;
 
 class vuelo{
 	private:
+		int tipoVuelo;
 		string numIdent;
 		string fecha;
 		string ciudadOrigen;
 		string ciudadDestino;
 		vector<pasajero> personasAbordo;
-		aeronave aeronaveAsignada;
+		aeronave *aeronaveAsignada;
 		vector<tripulante> tripulantesAbordo;
-	public: 
+	public:
 		vuelo();
 		/* gets */
 		string getNumIdent();
@@ -25,15 +26,17 @@ class vuelo{
 		string getCiudadDestino();
 		vector<pasajero> getPersonasAbordo();
 		aeronave getAeronaveAsignada();
+		int getTipoVuelo();
 		vector<tripulante> getTripulantesAbordo();
 		/* sets */
 		void setNumIdent(string NumID);
 		void setFecha(string Fecha);
 		void setCiudadOrigen(string COrigen);
 		void setCiudadDestino(string CDestino);
-		void setPersonasAbordo(vector<pasajero> p);
-		void setAeronaveAsignada(aeronave n);
-		void setTripulantesAbordo(vector<tripulante> t);
+		void addPersonasAbordo(pasajero p);
+		void setAeronaveAsignada(aeronave *n);
+		void addTripulantesAbordo(tripulante t);
+		void setTipoVuelo(int x);
 };
 
 #endif

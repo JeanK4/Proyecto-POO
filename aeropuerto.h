@@ -10,7 +10,7 @@ class aeropuerto{
 		vector<vuelo> vuelos;
 	public:
 		aeropuerto();
-		aeropuerto(vector<vuelo> vuelos);
+		aeropuerto(vector<vuelo> vuelo);
 		void reservarVuelo();
 		void consultarVuelo();
 		void añadirVuelo();
