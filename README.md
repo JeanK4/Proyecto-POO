@@ -1,4 +1,4 @@
-# Proyecto-POO - Aeropuerto 
+# Proyecto-POO - Aeropuerto - Jean Karlo Buitrago Orozco y Benjamín Ortíz Morales
 UML - https://github.com/JeanK4/UML/blob/main/ProyectoAeropuerto.drawio
 
 # Manual de Usuario - Sistema de Aeronaves
