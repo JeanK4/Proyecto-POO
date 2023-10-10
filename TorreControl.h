@@ -13,13 +13,12 @@ class torreControl{
 	public:
 		static torreControl* getInstance();
 		void asignarPuerta();
-		void iniciarVuelo(vuelo fly);
+		void iniciarVuelo(string numIdent);
 		void addPuerta(puertaembarque puerta);
-		void finalizarVuelo(vuelo fly);
-		void solicitarAltitud(vuelo fly);
-		void recibirAltitud();
-		void consultarPuertas();	
-		
+		void finalizarVuelo(string numIdent);
+		void solicitarAltitud(string numIdent);
+		void consultarPuertas();
+
 };
 
 #endif

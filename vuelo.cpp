@@ -7,7 +7,13 @@ string vuelo::getNumIdent() {
 }
 
 vuelo::vuelo(){
+    srand(static_cast<unsigned>(time(0)));
+    int random = rand() % 2001 + 10000;
+    this->altitud = random;
+}
 
+int vuelo::getAltitud(){
+    return this->altitud;
 }
 
 string vuelo::getFecha() {
@@ -84,14 +90,4 @@ string vuelo::getHora(){
 
 void vuelo::setHora(string hour){
     hora = hour;
-}
-
-void vuelo::recibirMensaje(){
-    cout << "Mensaje recibido: Vuelo #" << this->numIdent << ", Se solicita altitud" << endl;
-}
-
-void vuelo::enviarAltitud(){
-    srand(time(0));
-    int numeroAleatorio = 10000 + rand() % (12000 - 10000 + 1);
-    cout << "La altitud actual es de: " << numeroAleatorio << "metros de altura" << endl;
 }

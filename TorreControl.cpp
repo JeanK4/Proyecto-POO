@@ -37,29 +37,43 @@ void torreControl::asignarPuerta(){
 	}
 }
 
-void torreControl::iniciarVuelo(vuelo fly){
-	string tmp = fly.getIdPuerta();
-	bool flag = false;
-	int index;
-	while(!flag && index < Puertas.size()){
-		if(Puertas[index].getIdentificacion() == tmp){
-			Puertas[index].setDisponible(true);
-			fly.getAeronaveAsignada()->setEstado(5);
-			Puertas[index].setVuelo(NULL);
-			Puertas[index].setHora("");
-		}
-		index++;
+void torreControl::iniciarVuelo(string numIdent){
+	vector<vuelo>& vuelos = aeropuerto::getVuelos();
+	vuelo fly;
+	for(int i = 0; i < vuelos.size(); i++){
+		if(vuelos[i].getNumIdent() == numIdent)
+			fly = vuelos[i];
 	}
+	if(fly.getAeronaveAsignada()->getEstado() == 4){
+		string tmp = fly.getIdPuerta();
+		bool flag = false;
+		int index;
+		while(!flag && index < Puertas.size()){
+			if(Puertas[index].getIdentificacion() == tmp){
+				Puertas[index].setDisponible(true);
+				fly.getAeronaveAsignada()->setEstado(5);
+				Puertas[index].setVuelo(NULL);
+				Puertas[index].setHora("");
+			}
+			index++;
+		}
+	}
+	else
+		cout << "No es posible iniciar el vuelo sin asignar una puerta con anterioridad" << endl;
 }
 
 void torreControl::consultarPuertas(){
 	for(int i = 0; i < Puertas.size(); i++){
 		cout << "Puerta #" << Puertas[i].getIdentificacion() << ": ";
-		if(Puertas[i].getDisponible())
+		if(Puertas[i].getDisponible()){
 			cout << "Disponible, ";
-		else
+			cout << "Ubicacion: " << Puertas[i].getUbicacion() << endl;
+		}
+		else{
 			cout << "No Disponible, ";
-		cout << "Ubicacion: " << Puertas[i].getUbicacion() << endl;
+			cout << "Ubicacion: " << Puertas[i].getUbicacion() << endl;
+			cout << "Numero de vuelo asignado: " << Puertas[i].getVuelo()->getNumIdent() << endl;
+		}
 	}
 }
 
@@ -67,21 +81,32 @@ void torreControl::addPuerta(puertaembarque puerta){
 	Puertas.push_back(puerta);
 }
 
-void torreControl::solicitarAltitud(vuelo fly){
-	cout << "Vuelo #" << fly.getNumIdent() << ", Se solicita altitud" << endl;
-}
-
-void torreControl::recibirAltitud(){
-	cout << "Mensaje recibido" << endl;
-}
-
-void torreControl::finalizarVuelo(vuelo fly){
+void torreControl::solicitarAltitud(string numIdent){
 	vector<vuelo>& vuelos = aeropuerto::getVuelos();
-	string id = fly.getNumIdent();
+	int i = 0;
+	bool flag = false;
+	while(i < vuelos.size() && !flag){
+		if(vuelos[i].getNumIdent() == numIdent)
+			flag = true;
+		i++;
+	}
+	if(vuelos[i].getAeronaveAsignada()->getEstado() == 5)
+		cout << "Vuelo #" << numIdent << " con altitud: " << vuelos[i].getAltitud() << endl;
+	else
+		cout << "Vuelo #" << numIdent << " no se encuentra en el aire" << endl;
+}
+
+void torreControl::finalizarVuelo(string numIdent){
+	vector<vuelo>& vuelos = aeropuerto::getVuelos();
+	vuelo fly;
+	for(int i = 0; i < vuelos.size(); i++){
+		if(vuelos[i].getNumIdent() == numIdent)
+			fly = vuelos[i];
+	}
 	int index = 0;
 	bool flag = false;
-	while(!flag){
-		if(vuelos[index].getNumIdent() == id){
+	while(!flag && index < vuelos.size()){
+		if(vuelos[index].getNumIdent() == numIdent){
 			vuelos.erase(vuelos.begin() + index);
 			fly.getAeronaveAsignada()->setEstado(3);
 			flag = true;

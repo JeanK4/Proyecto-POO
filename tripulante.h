@@ -11,6 +11,7 @@ class tripulante : public persona{
 		int experienciaAnos;
 		int horasMax;
 	public:
+		tripulante(std::string Ced, std::string Nom, std::string FechNaci, std::string gender, std::string address, std::string telef, std::string mail,std::string puest, int Xp, int HM);
 		/* gets */
 		string getPuesto();
 		int getExperienciaAnos();

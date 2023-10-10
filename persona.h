@@ -17,6 +17,8 @@ class persona{
 		string telefono;
 		string correo;
 	public:
+		persona();
+		persona(std::string Ced, std::string Nom, std::string FechNaci, std::string gender, std::string address, std::string telef, std::string mail);
 		/* gets */
 		string getCedula();
 		string getNombre();

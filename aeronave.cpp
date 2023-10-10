@@ -1,8 +1,10 @@
 #include "aeronave.h"
+#include <cstdlib>
+#include <ctime>
 
 aeronave::aeronave() {
-    capacidadPasajeros = 0;
-    estado = 1;
+    this->capacidadPasajeros = 0;
+    this->estado = 1;
 }
 
 string aeronave::getMarca() {

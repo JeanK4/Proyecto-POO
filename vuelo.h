@@ -9,11 +9,12 @@ using namespace std;
 
 class vuelo{
 	private:
-		int tipoVuelo;
-		string numIdent;
-		string fecha;
 		string hora;
+		string fecha;
+		int tipoVuelo;
+		int altitud;
 		string idPuerta;
+		string numIdent;
 		string ciudadOrigen;
 		string ciudadDestino;
 		aeronave *aeronaveAsignada;
@@ -21,10 +22,9 @@ class vuelo{
 		vector<tripulante> tripulantesAbordo;
 	public:
 		vuelo();
-		void recibirMensaje();
-		void enviarAltitud();
 		/* gets */
 		string getNumIdent();
+		int getAltitud();
 		string getFecha();
 		string getHora();
 		string getCiudadOrigen();

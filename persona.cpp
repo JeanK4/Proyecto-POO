@@ -1,5 +1,11 @@
 #include "persona.h"
 
+persona::persona(){
+
+}
+
+persona::persona(std::string Ced, std::string Nom, std::string FechNaci, std::string gender, std::string address, std::string telef, std::string mail) : cedula(Ced), nombre(Nom), fechaNacimiento(FechNaci), genero(gender), direccion(address), telefono(telef), correo(mail) {}
+
 string persona::getCedula() {
     return cedula;
 }
