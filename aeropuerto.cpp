@@ -131,7 +131,7 @@ void aeropuerto::consultarVuelo(){
 	cin  >> numvuelo;
 	cout << endl;
 	while(i < vuelos.size() && !flag){
-		if(vuelos[i].getNumIdent() == numvuelo){
+		if(vuelos[i].getNumIdent() == numvuelo && vuelos[i].getAeronaveAsignada() != nullptr){
 			flag = true;
 			cout << "Numero de Vuelo: " << vuelos[i].getNumIdent() << endl;
 			cout << "Ciudad de Origen: " << vuelos[i].getCiudadOrigen() << endl;
@@ -153,7 +153,7 @@ void aeropuerto::anadirVuelo(){
 	flight.setTipoVuelo(opcion);
 	int x = 0;
 	aeronave* tmp3 = nullptr;
-	if(vuelos.size() == 0){
+	if(vuelos.empty()){
 		switch(opcion){
 		    case 1: {
 	            avion* AvionComercial = new avion(); 
@@ -342,38 +342,39 @@ void aeropuerto::anadirVuelo(){
 			            cout << "Opcion invalida" << endl;
 			        }
 			    }
-		    vector<string> services(servicios.begin(), servicios.end());
-		    jet->setServicios(services);
+                vector<string> services(servicios.begin(), servicios.end());
+                jet->setServicios(services);
 
-		    int ct;
-		    set<string> destinos;
-		    cout << "Digite cuantos destinos frecuentes desea(numero): ";
-		    cin >> ct;
-		    for (int i = 0; i < ct; i++) {
-		        cout << "Digite los destinos Frecuentes(texto): ";
-		        cin >> tmp1;
-		        destinos.insert(tmp1);
-		    }
+                int ct;
+                set<string> destinos;
+                cout << "Digite cuantos destinos frecuentes desea(numero): ";
+                cin >> ct;
+                for (int i = 0; i < ct; i++) {
+                    cout << "Digite los destinos Frecuentes(texto): ";
+                    cin >> tmp1;
+                    destinos.insert(tmp1);
+                }
 
-		    vector<string> destino(destinos.begin(), destinos.end());
-		    jet->setDestinosFrec(destino);
+                vector<string> destino(destinos.begin(), destinos.end());
+                jet->setDestinosFrec(destino);
 
-		    tmp3 = jet; // Asignar el puntero al objeto creado en el heap
+                tmp3 = jet; // Asignar el puntero al objeto creado en el heap
 
-		    break;
-		}
-        default:
-            cout << "Opcion invalida." << endl;
-            break;
+                break;
+            }
+            default:
+                cout << "Opcion invalida." << endl;
+                break;
         }
-    }
-    else{
+        flight.setAeronaveAsignada(tmp3);
+    }else{
     	bool naveAsignada = false;
 	    auto it = vuelos.begin();
 	    while(!naveAsignada && it != vuelos.end()){
-	        if (opcion == it->getTipoVuelo() && it->getAeronaveAsignada()->getCtVuelos() < 3) {
+	        if(opcion == it->getTipoVuelo() && it->getAeronaveAsignada()->getCtVuelos() < 3){
 	            flight.setAeronaveAsignada(it->getAeronaveAsignada());
-	            int z = it->getAeronaveAsignada()->getCtVuelos();
+                cout << flight.getAeronaveAsignada()->getMarca() << endl;
+	            int z = it->getAeronaveAsignada()->getCtVuelos() + 1;
 	            it->getAeronaveAsignada()->setCtVuelos(z);
 	            naveAsignada = true;
 	        }
@@ -382,7 +383,7 @@ void aeropuerto::anadirVuelo(){
 	    if(!naveAsignada) {
 	        cout << "No hay naves disponibles con menos de 3 vuelos del tipo seleccionado, por favor, crea una nueva nave." << endl;
 	        if(opcion == 1){
-	            avion *AvionComercial = new avion(); 
+	            avion *AvionComercial = new avion();
 
 	            cout << "Ingrese la marca del avion(texto): ";
 	            cin >> tmp1;
@@ -420,7 +421,7 @@ void aeropuerto::anadirVuelo(){
 	            cin >> tmp;
 	            AvionComercial->setCantMotores(tmp);
 
-	            tmp3 = AvionComercial; 
+	            tmp3 = AvionComercial;
 
 		    }
 			else if(opcion == 2){
@@ -511,81 +512,83 @@ void aeropuerto::anadirVuelo(){
 			    tmp3 = heli;
 
 			}
-	        else if(opcion == 4){
-			    jets *jet = new jets(); // Crear un objeto jets en el heap usando new
+	        else if (opcion == 4) {
+                jets *jet = new jets(); // Crear un objeto jets en el heap usando new
 
-			    cout << "Ingrese la marca del jet(texto): ";
-			    cin >> tmp1;
-			    jet->setMarca(tmp1);
+                cout << "Ingrese la marca del jet(texto): ";
+                cin >> tmp1;
+                jet->setMarca(tmp1);
 
-			    cout << "Ingrese el modelo del jet(numero): ";
-			    cin >> tmp;
-			    jet->setModelo(tmp);
+                cout << "Ingrese el modelo del jet(numero): ";
+                cin >> tmp;
+                jet->setModelo(tmp);
 
-			    cout << "Ingrese la cantidad de asientos del jet: ";
-			    cin >> tmp;
-			    jet->setCapacidadPasajeros(tmp);
+                cout << "Ingrese la cantidad de asientos del jet: ";
+                cin >> tmp;
+                jet->setCapacidadPasajeros(tmp);
 
-			    cout << "Ingrese la velocidad maxima del jet(numero): ";
-			    cin >> tmp;
-			    jet->setVelocidadMaxima(tmp);
+                cout << "Ingrese la velocidad maxima del jet(numero): ";
+                cin >> tmp;
+                jet->setVelocidadMaxima(tmp);
 
-			    cout << "Ingrese la autonomia del jet(numero): ";
-			    cin >> tmp;
-			    jet->setAutonomia(tmp);
+                cout << "Ingrese la autonomia del jet(numero): ";
+                cin >> tmp;
+                jet->setAutonomia(tmp);
 
-			    cout << "Ingrese el ano de fabricacion del jet(numero): ";
-			    cin >> tmp;
-			    jet->setAnoFabricacion(tmp);
+                cout << "Ingrese el ano de fabricacion del jet(numero): ";
+                cin >> tmp;
+                jet->setAnoFabricacion(tmp);
 
-			    jet->setEstado(1);
+                jet->setEstado(1);
 
-			    jet->setCtVuelos(x);
+                jet->setCtVuelos(x);
 
-			    cout << "Ingrese el nombre del propietario del jet(texto): ";
-			    cin >> tmp1;
-			    jet->setPropietario(tmp1);
+                cout << "Ingrese el nombre del propietario del jet(texto): ";
+                cin >> tmp1;
+                jet->setPropietario(tmp1);
 
-			    set<string> servicios;
-			    bool flag = false;
-			    while (!flag) {
-			        cout << "Digite el tipo de uso: 1. Bar\n2. Entretenimiento VIP\n3. Dormitorio privado\n4. Chef privado\n5. Salir\n";
-			        cin >> tmp;
-			        if (tmp == 5)
-			            flag = true;
-			        else if (tmp == 1)
-			            servicios.insert("Bar");
-			        else if (tmp == 2)
-			            servicios.insert("Entretenimiento VIP");
-			        else if (tmp == 3)
-			            servicios.insert("Dormitorio privado");
-			        else if (tmp == 4)
-			            servicios.insert("Chef privado");
-			        else {
-			            cout << "Opcion invalida" << endl;
-			        }
-			    }
+                set<string> servicios;
+                bool flag = false;
+                while (!flag) {
+                    cout
+                            << "Digite el tipo de uso: 1. Bar\n2. Entretenimiento VIP\n3. Dormitorio privado\n4. Chef privado\n5. Salir\n";
+                    cin >> tmp;
+                    if (tmp == 5)
+                        flag = true;
+                    else if (tmp == 1)
+                        servicios.insert("Bar");
+                    else if (tmp == 2)
+                        servicios.insert("Entretenimiento VIP");
+                    else if (tmp == 3)
+                        servicios.insert("Dormitorio privado");
+                    else if (tmp == 4)
+                        servicios.insert("Chef privado");
+                    else {
+                        cout << "Opcion invalida" << endl;
+                    }
+                }
 
-		    vector<string> services(servicios.begin(), servicios.end());
-		    jet->setServicios(services);
+                vector<string> services(servicios.begin(), servicios.end());
+                jet->setServicios(services);
 
-		    int ct;
-		    set<string> destinos;
-		    cout << "Digite cuantos destinos frecuentes desea(numero): ";
-		    cin >> ct;
-		    for (int i = 0; i < ct; i++) {
-		        cout << "Digite los destinos Frecuentes(texto): ";
-		        cin >> tmp1;
-		        destinos.insert(tmp1);
-		    }
+                int ct;
+                set<string> destinos;
+                cout << "Digite cuantos destinos frecuentes desea(numero): ";
+                cin >> ct;
+                for (int i = 0; i < ct; i++) {
+                    cout << "Digite los destinos Frecuentes(texto): ";
+                    cin >> tmp1;
+                    destinos.insert(tmp1);
+                }
 
-		    vector<string> destino(destinos.begin(), destinos.end());
-		    jet->setDestinosFrec(destino);
+                vector<string> destino(destinos.begin(), destinos.end());
+                jet->setDestinosFrec(destino);
 
-		    tmp3 = jet;
-		}
-	    else
-	        cout << "Opcion invalida." << endl;
+                tmp3 = jet;
+            } else {
+                cout << "Opcion invalida." << endl;
+            }
+            flight.setAeronaveAsignada(tmp3);
     	}
 	}
     /* Creacion Tripulacion */
@@ -597,7 +600,7 @@ void aeropuerto::anadirVuelo(){
     flight.addTripulantesAbordo(azafata);
     flight.addTripulantesAbordo(copiloto);
     flight.addTripulantesAbordo(auxiliarDeVuelo);
-    flight.setAeronaveAsignada(tmp3);
+
 	cout << "Digite el numero del vuelo: ";
 	cin >> tmp1;
 	flight.setNumIdent(tmp1);

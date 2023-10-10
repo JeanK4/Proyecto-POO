@@ -1,0 +1,26 @@
+# ninja log v5
+71	839	7186095761904048	CMakeFiles/Proyecto_POO.dir/usuario.cpp.obj	26acf84032666ee7
+31	842	7186095761884078	CMakeFiles/Proyecto_POO.dir/tripulante.cpp.obj	820817605f63834f
+24	907	7186095761863945	CMakeFiles/Proyecto_POO.dir/pasajero.cpp.obj	8ab49ec8b20edebe
+13	915	7186095762574440	CMakeFiles/Proyecto_POO.dir/persona.cpp.obj	1eece758bd2db172
+7	1024	7186095763673335	CMakeFiles/Proyecto_POO.dir/aeronave.cpp.obj	1bd463ade2c80a2f
+60	1173	7186095764822387	CMakeFiles/Proyecto_POO.dir/vuelo.cpp.obj	94793aec386e61e2
+49	1254	7186095765967544	CMakeFiles/Proyecto_POO.dir/PuertaEmbarque.cpp.obj	1069155ecd288c99
+41	1515	7186095767473106	CMakeFiles/Proyecto_POO.dir/TorreControl.cpp.obj	249e065c012bb4b6
+1	1941	7186095770996609	CMakeFiles/Proyecto_POO.dir/aeropuerto.cpp.obj	97b709eee037d3cf
+19	2961	7186095779989512	CMakeFiles/Proyecto_POO.dir/main.cpp.obj	31ae3765c9cf2cbb
+2962	3243	7186095786187587	Proyecto_POO.exe	4cd8637d10de55e7
+3	858	7186104546521359	CMakeFiles/Proyecto_POO.dir/aeropuerto.cpp.obj	97b709eee037d3cf
+859	1114	7186104549035974	Proyecto_POO.exe	4cd8637d10de55e7
+3	841	7186111092707323	CMakeFiles/Proyecto_POO.dir/aeropuerto.cpp.obj	97b709eee037d3cf
+841	1103	7186111095043155	Proyecto_POO.exe	4cd8637d10de55e7
+4	829	7186115201003424	CMakeFiles/Proyecto_POO.dir/aeropuerto.cpp.obj	97b709eee037d3cf
+829	1052	7186115203227204	Proyecto_POO.exe	4cd8637d10de55e7
+4	891	7186120050650961	CMakeFiles/Proyecto_POO.dir/aeropuerto.cpp.obj	97b709eee037d3cf
+891	1157	7186120053416997	Proyecto_POO.exe	4cd8637d10de55e7
+2	857	7186123165555919	CMakeFiles/Proyecto_POO.dir/aeropuerto.cpp.obj	97b709eee037d3cf
+858	1204	7186123168265747	Proyecto_POO.exe	4cd8637d10de55e7
+3	1150	7186127381792067	CMakeFiles/Proyecto_POO.dir/aeropuerto.cpp.obj	97b709eee037d3cf
+1150	1578	7186127384868741	Proyecto_POO.exe	4cd8637d10de55e7
+3	853	7186129841826897	CMakeFiles/Proyecto_POO.dir/aeropuerto.cpp.obj	97b709eee037d3cf
+853	1165	7186129844644678	Proyecto_POO.exe	4cd8637d10de55e7
